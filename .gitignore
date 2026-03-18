@@ -1,0 +1,13 @@
+# Ignora binarios compilados do Java
+*.class
+
+# Ignora cache de layout e metadados do BlueJ
+*.ctxt
+*.jar
+*.war
+
+# Ignora logs e arquivos de sistema/backup
+*.bak
+*~
+.DS_Store
+Thumbs.db
