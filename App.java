@@ -1,27 +1,22 @@
 import javax.swing.JOptionPane;
-/**
- * Write a description of class App here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+
 public class App {
-    public static void main(String args[]) {
-        int qtde = Integer.parseInt(JOptionPane.showInputDialog("Forneça a quantidade de alunos: "));
-
-        CadastroAlunos ca = new CadastroAlunos(qtde);
-
-        IMenu mn = new MenuGrafico(); 
-        //IMenu mn = new MenuTexto(); 
-
-        String [] itensMenu = {"1 - inserir", "2 - remover", "3 - listar", "4 - sair"};
-
-        int opcao = 0;
+    public static void main(String[] args) {
+        String inputQtde = JOptionPane.showInputDialog("Forneça a quantidade de alunos: ");
         
-        do {
-            opcao = mn.criarMenu(itensMenu);
+        if (inputQtde == null || inputQtde.trim().isEmpty()) {
+            System.exit(0);
+        }
 
-        } while(opcao != 4);
-
+        try {
+            int qtde = Integer.parseInt(inputQtde);
+            CadastroAlunos ca = new CadastroAlunos(qtde);
+            
+            IMenu menu = new MenuGrafico();
+            menu.exibirMenu(ca);
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Erro: A quantidade deve ser um número inteiro.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

@@ -1,19 +1,19 @@
-
-/**
- * Write a description of class CadastroAlunos here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
 public class CadastroAlunos {
+    private IArmazenador armazenador;
 
-    IArmazenador arm; 
-    CadastroAlunos (int qtde){
-        arm = new ArmazenadorArray(qtde);
+    public CadastroAlunos(int qtde) {
+        this.armazenador = new ArmazenadorArray(qtde);
     }
-    
-    // inserir
-    // remover
-    // listar
-    
+
+    public boolean inserir(Aluno aluno) {
+        return armazenador.inserir(aluno);
+    }
+
+    public boolean remover(String nome) {
+        return armazenador.remover(nome);
+    }
+
+    public Aluno[] listar() {
+        return armazenador.listar();
+    }
 }

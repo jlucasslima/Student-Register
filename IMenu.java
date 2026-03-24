@@ -1,17 +1,3 @@
-
-/**
- * Write a description of interface IMenu here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public interface IMenu
-{
-    /**
-     * An example of a method header - replace this comment with your own
-     *
-     * @param  y a sample parameter for a method
-     * @return   the result produced by sampleMethod
-     */
-    int criarMenu(String opcoes[]);
+public interface IMenu {
+    void exibirMenu(CadastroAlunos cadastro);
 }
