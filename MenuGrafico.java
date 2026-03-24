@@ -42,9 +42,10 @@ public class MenuGrafico implements IMenu {
                     break;
 
                 case "2":
-                    String nomeRemover = JOptionPane.showInputDialog("Digite o nome do aluno para remover:");
-                    if (nomeRemover != null) {
-                        if (cadastro.remover(nomeRemover)) {
+                    // AQUI MUDOU: Agora pede o RA!
+                    String raRemover = JOptionPane.showInputDialog("Digite o RA do aluno para remover:");
+                    if (raRemover != null && !raRemover.trim().isEmpty()) {
+                        if (cadastro.remover(raRemover)) {
                             JOptionPane.showMessageDialog(null, "Aluno removido com sucesso!");
                         } else {
                             JOptionPane.showMessageDialog(null, "Aluno não encontrado na lista.");

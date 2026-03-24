@@ -18,9 +18,10 @@ public class ArmazenadorArray implements IArmazenador {
     }
 
     @Override
-    public boolean remover(String nome) {
+    public boolean remover(String ra) {
         for (int i = 0; i < indice; i++) {
-            if (alunos[i].getNome().equalsIgnoreCase(nome)) {
+            // AQUI ESTÁ A MÁGICA: Puxando pelo RA em vez do Nome!
+            if (alunos[i].getRa().equalsIgnoreCase(ra)) {
                 for (int j = i; j < indice - 1; j++) {
                     alunos[j] = alunos[j + 1];
                 }

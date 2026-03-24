@@ -9,8 +9,8 @@ public class CadastroAlunos {
         return armazenador.inserir(aluno);
     }
 
-    public boolean remover(String nome) {
-        return armazenador.remover(nome);
+    public boolean remover(String ra) {
+        return armazenador.remover(ra);
     }
 
     public Aluno[] listar() {
