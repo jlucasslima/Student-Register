@@ -1,53 +1,53 @@
-# Sistema de Cadastro de Alunos
+# Student Registration System
 
-Um sistema em **Java** com interface gráfica para gerenciamento e cadastro de estudantes. Este projeto foi desenvolvido aplicando conceitos sólidos de **Programação Orientada a Objetos (POO)**, incluindo herança, polimorfismo e interfaces.
+A **Java** system with a graphical interface for managing and registering students. This project was developed applying solid **Object-Oriented Programming (OOP)** concepts, including inheritance, polymorphism, and interfaces.
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![BlueJ](https://img.shields.io/badge/BlueJ-3C8CC7?style=for-the-badge&logo=java&logoColor=white)
 
 ---
 
-## Funcionalidades
+## Features
 
-O sistema conta com um menu interativo (`JOptionPane`) que permite:
+The system features an interactive menu (`JOptionPane`) that allows:
 
-- **Inserir Aluno:** Cadastro com Nome, Idade, RA e Curso.
-- **Remover Aluno:** Exclusão de alunos da lista a partir do nome.
-- **Listar Alunos:** Exibição de todos os alunos cadastrados no sistema.
-- **Formatação Bibliográfica:** Conversão automática de nomes para o formato de citação (ex: *Ze da Silva Pereira Antunes* ➔ *ANTUNES, Ze da Silva Pereira*).
-- **Controle de Capacidade:** O sistema respeita o limite de alunos definido pelo usuário no início da execução.
-
----
-
-## Tecnologias Utilizadas
-
-- **Linguagem:** Java (JDK)
-- **Interface Gráfica:** Java Swing (`JOptionPane`)
-- **Ambiente de Desenvolvimento:** BlueJ
+- **Insert Student:** Registration with Name, Age, RA (Student ID), and Course.
+- **Remove Student:** Deletion of students from the list by name.
+- **List Students:** Display of all students registered in the system.
+- **Bibliographic Formatting:** Automatic conversion of names to citation format (e.g., *Ze da Silva Pereira Antunes* ➔ *ANTUNES, Ze da Silva Pereira*).
+- **Capacity Control:** The system respects the student limit defined by the user at the start of execution.
 
 ---
 
-## Arquitetura do Projeto
+## Technologies Used
 
-O projeto foi construído pensando em modularidade e boas práticas. As principais classes e interfaces são:
-
-* `Pessoa` / `Aluno`: Classes de modelo utilizando herança para representar os dados do estudante.
-* `Texto` / `NomePessoa`: Classes responsáveis pelo tratamento e formatação de strings (como a geração do nome bibliográfico).
-* `IArmazenador`: Interface que define o contrato de armazenamento de dados.
-* `ArmazenadorArray`: Implementação concreta da interface `IArmazenador`, gerenciando os alunos em um vetor em memória.
-* `CadastroAlunos`: Classe controladora que faz a ponte entre a interface e os dados.
-* `IMenu` / `MenuGrafico`: Interface e implementação da camada de visualização (UI) usando janelas pop-up.
-* `App`: Classe principal que inicializa o sistema.
+- **Language:** Java (JDK)
+- **Graphical Interface:** Java Swing (`JOptionPane`)
+- **Development Environment:** BlueJ
 
 ---
 
-## Como Executar (no BlueJ)
+## Project Architecture
 
-1. Abra o projeto no **BlueJ**.
-2. Clique no botão **"Compilar"** para garantir que todas as dependências estão corretas.
-3. Clique com o botão direito na classe `App`.
-4. Selecione `void main(String[] args)`.
-5. Insira a quantidade máxima de alunos e interaja com o menu gráfico!
+The project was built with modularity and best practices in mind. The main classes and interfaces are:
+
+* `Pessoa` / `Aluno`: Model classes using inheritance to represent student data.
+* `Texto` / `NomePessoa`: Classes responsible for string handling and formatting (such as generating the bibliographic name).
+* `IArmazenador`: Interface that defines the data storage contract.
+* `ArmazenadorArray`: Concrete implementation of the `IArmazenador` interface, managing students in an in-memory array.
+* `CadastroAlunos`: Controller class that bridges the user interface and the data.
+* `IMenu` / `MenuGrafico`: Interface and implementation of the view layer (UI) using pop-up windows.
+* `App`: Main class that initializes the system.
 
 ---
-*Desenvolvido como projeto de estudo em Ciência da Computação.*
+
+## How to Run (in BlueJ)
+
+1. Open the project in **BlueJ**.
+2. Click the **"Compile"** button to ensure all dependencies are correct.
+3. Right-click on the `App` class.
+4. Select `void main(String[] args)`.
+5. Enter the maximum number of students and interact with the graphical menu!
+
+---
+*Developed as a Computer Science study project.*
