@@ -15,7 +15,7 @@ O sistema foi blindado ("user-friendly") para não exibir mensagens técnicas de
 - Não é permitido cadastrar alunos com a mesma matrícula (RA).
 - O RA (Registro Acadêmico) aceita exclusivamente números.
 - Os campos Nome e Curso aceitam exclusivamente letras e espaços.
-- A idade é validada dentro de um intervalo lógico (16 a 120 anos).
+- A idade é validada dentro de um intervalo lógico (16 a 80 anos).
 - Operações de remoção e atualização bloqueiam tentativas de alterar matrículas inexistentes.
 
 ## Arquitetura e Organização (Pacotes)
