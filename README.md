@@ -1,53 +1,39 @@
-# Student Registration System
+# Sistema de Cadastro de Alunos
 
-A **Java** system with a graphical interface for managing and registering students. This project was developed applying solid **Object-Oriented Programming (OOP)** concepts, including inheritance, polymorphism, and interfaces.
+Este é um projeto acadêmico desenvolvido para a disciplina do curso de Ciência da Computação da PUC-SP (1º Semestre de 2026). O sistema consiste em uma aplicação Java com Interface Gráfica (GUI) focada no gerenciamento de cadastros de alunos, aplicando fortes conceitos de Programação Orientada a Objetos (POO), arquitetura MVC e separação de responsabilidades.
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![BlueJ](https://img.shields.io/badge/BlueJ-3C8CC7?style=for-the-badge&logo=java&logoColor=white)
+## Funcionalidades (Requisitos Funcionais)
 
----
+- **RF01 - Inserir aluno no cadastro:** Permite cadastrar novos estudantes, com proteção contra matrículas (RA) duplicadas e validação da capacidade máxima do sistema.
+- **RF02 - Remover um aluno específico:** Remoção de registros através de busca por identificação única (RA).
+- **RF03 - Listar alunos cadastrados:** Exibição dinâmica de todos os estudantes cadastrados. Permite a listagem em dois formatos: Padrão ou Formato Bibliográfico (ex: `SOUZA, João Lucas`).
+- **RF04 - Atualizar dados de um aluno:** Permite a alteração de dados (Nome, Idade e Curso) de um aluno já existente, buscando pela sua matrícula.
 
-## Features
+## Regras de Negócio e Validações
 
-The system features an interactive menu (`JOptionPane`) that allows:
+O sistema foi blindado ("user-friendly") para não exibir mensagens técnicas de erro ao usuário. Todas as entradas passam por tratamento rígido:
+- Não é permitido cadastrar alunos com a mesma matrícula (RA).
+- O RA (Registro Acadêmico) aceita exclusivamente números.
+- Os campos Nome e Curso aceitam exclusivamente letras e espaços.
+- A idade é validada dentro de um intervalo lógico (16 a 120 anos).
+- Operações de remoção e atualização bloqueiam tentativas de alterar matrículas inexistentes.
 
-- **Insert Student:** Registration with Name, Age, RA (Student ID), and Course.
-- **Remove Student:** Deletion of students from the list by name.
-- **List Students:** Display of all students registered in the system.
-- **Bibliographic Formatting:** Automatic conversion of names to citation format (e.g., *Ze da Silva Pereira Antunes* ➔ *ANTUNES, Ze da Silva Pereira*).
-- **Capacity Control:** The system respects the student limit defined by the user at the start of execution.
+## Arquitetura e Organização (Pacotes)
 
----
+O código foi refatorado e dividido em pacotes para garantir a legibilidade, reutilização e facilidade de manutenção:
 
-## Technologies Used
+* `modelo/`: Contém as classes de domínio (`Aluno`, `Pessoa`, `Texto`, `NomePessoa`). O encapsulamento foi aplicado rigorosamente.
+* `armazenamento/`: Camada de persistência de dados. Utiliza o Princípio de Inversão de Dependência via interface `IArmazenador`, permitindo que a implementação atual (`ArmazenadorArray`) possa ser trocada no futuro (por um Banco de Dados, por exemplo) sem quebrar o código.
+* `controle/`: Ponte que aplica as Regras de Negócio (`CadastroAlunos`) conectando a Visão com o Armazenamento.
+* `visao/`: Interface com o usuário. Utiliza a interface `IMenu` e foi implementada via `MenuGrafico` (Java Swing via `JOptionPane`), garantindo que entradas e saídas não se misturem com a lógica.
 
-- **Language:** Java (JDK)
-- **Graphical Interface:** Java Swing (`JOptionPane`)
-- **Development Environment:** BlueJ
+## Como executar
 
----
-
-## Project Architecture
-
-The project was built with modularity and best practices in mind. The main classes and interfaces are:
-
-* `Pessoa` / `Aluno`: Model classes using inheritance to represent student data.
-* `Texto` / `NomePessoa`: Classes responsible for string handling and formatting (such as generating the bibliographic name).
-* `IArmazenador`: Interface that defines the data storage contract.
-* `ArmazenadorArray`: Concrete implementation of the `IArmazenador` interface, managing students in an in-memory array.
-* `CadastroAlunos`: Controller class that bridges the user interface and the data.
-* `IMenu` / `MenuGrafico`: Interface and implementation of the view layer (UI) using pop-up windows.
-* `App`: Main class that initializes the system.
+1. Certifique-se de ter o JDK (Java Development Kit) instalado.
+2. Clone este repositório.
+3. Compile os arquivos ou abra a pasta raiz em uma IDE (como BlueJ, Eclipse ou IntelliJ).
+4. Execute o arquivo principal: `App.java`.
 
 ---
-
-## How to Run (in BlueJ)
-
-1. Open the project in **BlueJ**.
-2. Click the **"Compile"** button to ensure all dependencies are correct.
-3. Right-click on the `App` class.
-4. Select `void main(String[] args)`.
-5. Enter the maximum number of students and interact with the graphical menu!
-
----
-*Developed as a Computer Science study project.*
+**Instituição:** PUC-SP - Faculdade de Ciências Exatas e Tecnologia  
+**Laboratório:** LED - Laboratório de Estruturas Dinâmicas
