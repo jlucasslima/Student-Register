@@ -1,39 +1,34 @@
-# Sistema de Cadastro de Alunos
+Student Registration System
 
-Este é um projeto acadêmico desenvolvido para a disciplina do curso de Ciência da Computação da PUC-SP (1º Semestre de 2026). O sistema consiste em uma aplicação Java com Interface Gráfica (GUI) focada no gerenciamento de cadastros de alunos, aplicando fortes conceitos de Programação Orientada a Objetos (POO), arquitetura MVC e separação de responsabilidades.
+This is an academic project developed for a Computer Science course at PUC-SP (1st Semester of 2026). The system consists of a Java application with a Graphical User Interface (GUI) focused on managing student records, applying strong concepts of Object-Oriented Programming (OOP), MVC architecture, and separation of concerns.
 
-## Funcionalidades (Requisitos Funcionais)
+Features (Functional Requirements)
+FR01 - Add student to the system: Allows registering new students, with protection against duplicate student IDs (RA) and validation of the system's maximum capacity.
+FR02 - Remove a specific student: Removes records by searching for a unique identifier (RA).
+FR03 - List registered students: Dynamically displays all registered students. Supports two formats: Standard or Bibliographic Format (e.g., SOUZA, João Lucas).
+FR04 - Update student data: Allows updating student information (Name, Age, and Course) by searching using their registration number.
+Business Rules and Validations
 
-- **RF01 - Inserir aluno no cadastro:** Permite cadastrar novos estudantes, com proteção contra matrículas (RA) duplicadas e validação da capacidade máxima do sistema.
-- **RF02 - Remover um aluno específico:** Remoção de registros através de busca por identificação única (RA).
-- **RF03 - Listar alunos cadastrados:** Exibição dinâmica de todos os estudantes cadastrados. Permite a listagem em dois formatos: Padrão ou Formato Bibliográfico (ex: `SOUZA, João Lucas`).
-- **RF04 - Atualizar dados de um aluno:** Permite a alteração de dados (Nome, Idade e Curso) de um aluno já existente, buscando pela sua matrícula.
+The system was designed to be user-friendly and avoids displaying technical error messages. All inputs are strictly validated:
 
-## Regras de Negócio e Validações
+Duplicate student IDs (RA) are not allowed.
+The RA (Academic Registration Number) accepts only numeric values.
+Name and Course fields accept only letters and spaces.
+Age is validated within a logical range (16 to 80 years).
+Removal and update operations prevent actions on non-existent registrations.
+Architecture and Organization (Packages)
 
-O sistema foi blindado ("user-friendly") para não exibir mensagens técnicas de erro ao usuário. Todas as entradas passam por tratamento rígido:
-- Não é permitido cadastrar alunos com a mesma matrícula (RA).
-- O RA (Registro Acadêmico) aceita exclusivamente números.
-- Os campos Nome e Curso aceitam exclusivamente letras e espaços.
-- A idade é validada dentro de um intervalo lógico (16 a 80 anos).
-- Operações de remoção e atualização bloqueiam tentativas de alterar matrículas inexistentes.
+The code was refactored and organized into packages to ensure readability, reusability, and maintainability:
 
-## Arquitetura e Organização (Pacotes)
+model/: Contains domain classes (Aluno, Pessoa, Texto, NomePessoa). Encapsulation is strictly applied.
+storage/: Data persistence layer. Uses the Dependency Inversion Principle through the IArmazenador interface, allowing the current implementation (ArmazenadorArray) to be replaced in the future (e.g., with a database) without breaking the code.
+controller/: Acts as a bridge applying business rules (CadastroAlunos), connecting the View with the Storage layer.
+view/: User interface. Uses the IMenu interface and is implemented via MenuGrafico (Java Swing with JOptionPane), ensuring that input/output is separated from business logic.
+How to Run
+Make sure you have the JDK (Java Development Kit) installed.
+Clone this repository.
+Compile the files or open the root folder in an IDE (such as BlueJ, Eclipse, or IntelliJ).
+Run the main file: App.java.
 
-O código foi refatorado e dividido em pacotes para garantir a legibilidade, reutilização e facilidade de manutenção:
-
-* `modelo/`: Contém as classes de domínio (`Aluno`, `Pessoa`, `Texto`, `NomePessoa`). O encapsulamento foi aplicado rigorosamente.
-* `armazenamento/`: Camada de persistência de dados. Utiliza o Princípio de Inversão de Dependência via interface `IArmazenador`, permitindo que a implementação atual (`ArmazenadorArray`) possa ser trocada no futuro (por um Banco de Dados, por exemplo) sem quebrar o código.
-* `controle/`: Ponte que aplica as Regras de Negócio (`CadastroAlunos`) conectando a Visão com o Armazenamento.
-* `visao/`: Interface com o usuário. Utiliza a interface `IMenu` e foi implementada via `MenuGrafico` (Java Swing via `JOptionPane`), garantindo que entradas e saídas não se misturem com a lógica.
-
-## Como executar
-
-1. Certifique-se de ter o JDK (Java Development Kit) instalado.
-2. Clone este repositório.
-3. Compile os arquivos ou abra a pasta raiz em uma IDE (como BlueJ, Eclipse ou IntelliJ).
-4. Execute o arquivo principal: `App.java`.
-
----
-**Instituição:** PUC-SP - Faculdade de Ciências Exatas e Tecnologia  
-**Laboratório:** LED - Laboratório de Estruturas Dinâmicas
+Institution: PUC-SP - Faculty of Exact Sciences and Technology
+Laboratory: LED - Laboratory of Dynamic Structures
