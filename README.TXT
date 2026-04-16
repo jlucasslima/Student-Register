@@ -1,34 +1,38 @@
-------------------------------------------------------------------------
-ESTE É O ARQUIVO README DO PROJETO.
-------------------------------------------------------------------------
+# Student Registration System
 
-TITULO DO PROJETO: 
-Sistema de Cadastro de Alunos (Gestão Acadêmica)
+A Java-based application designed to manage student records, developed as part of the Computer Science curriculum at PUC-SP. This project demonstrates the practical application of Object-Oriented Programming (OOP) principles, focusing on modularity and clean code.
 
-OBJETIVO DO PROJETO:
-Gerenciar o cadastro, remoção e listagem de alunos utilizando uma interface 
-gráfica (Swing). O sistema aplica conceitos de Programação Orientada 
-a Objetos, como herança, polimorfismo e interfaces.
+## Technical Overview
 
-VERSÃO ou DATA: 
-1.0 (Março/2026)
+The system is built using Java and follows a structured architectural approach to ensure maintainability and clear separation of concerns.
 
-COMO INICIAR O PROJETO:
-1. Abra o projeto no ambiente BlueJ.
-2. Compile todas as classes para garantir a integridade das dependências.
-3. Clique com o botão direito na classe 'App' e execute o método 'main'.
-4. Informe a quantidade máxima de alunos permitida para a sessão.
+### Key Features
+- **Student Management:** Full CRUD (Create, Read, Update, Delete) operations for student data.
+- **Data Persistence:** Local storage implementation using flat files (`banco.txt`).
+- **Modular Architecture:** Organized into specific packages for data handling, business logic, and user interface.
 
-AUTORES:
-- Pedro Chagas - RA00359511
-- Joao Lucas - RA00360044
-- Julie Quaglio - RA00359288
+### Architectural Principles
+Unlike traditional inheritance-based models, this project strictly adheres to **Composition over Inheritance**. This approach was chosen to:
+- Reduce system coupling.
+- Increase flexibility in object behavior.
+- Ensure a more robust implementation of the domain logic as per academic requirements.
 
-INSTRUÇÕES PARA O USUÁRIO:
-- Ao iniciar, digite um número inteiro para definir o limite de armazenamento.
-- Utilize o Menu Gráfico para navegar entre as opções de inserir, remover ou listar.
-- No cadastro, insira Nome, Idade, RA e Curso do estudante.
-- O sistema validará se a idade informada é um número válido e se há espaço no 
-  armazenador antes de confirmar a operação[cite: 1].
-- A listagem exibirá os dados formatados, incluindo a geração automática do 
-  nome bibliográfico.
+## Project Structure
+
+The project is organized into the following packages:
+- `modelo`: Contains the core entities and business logic.
+- `visao`: Handles the user interface components.
+- `controle`: Manages the communication between the model and the view.
+- `dados` & `armazenamento`: Responsible for file I/O and data persistence.
+
+## Requirements
+- Java Development Kit (JDK) 8 or higher.
+- BlueJ IDE (recommended) or any Java-compatible terminal.
+
+## How to Run
+1. Clone the repository.
+2. Compile the `App.java` file located in the root directory.
+3. Execute the main method to launch the application.
+
+## Author
+**João Lucas de Lima Souza** Computer Science Student - PUC-SP
